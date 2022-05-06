@@ -1,0 +1,31 @@
+import random
+
+class Card:
+    """
+    Responsibility:
+        keep track of the first card random value and
+        second card random value
+    Attributes:
+        first_card_value: int
+        second_card_value: int
+    """
+
+    def __init__(self):
+        """Constructs a new Director.
+        
+        Args:
+            self (Director): an instance of Director.
+        """
+        self.first_card_value = 0
+        self.second_card_value = 0
+    
+    def draw_first_card(self):
+        # Adil Rafi (remove pass once finished)
+
+        pass
+
+
+    def draw_second_card(self):
+        # Oleksii Zaloznyi (remove pass once finished)
+
+        pass

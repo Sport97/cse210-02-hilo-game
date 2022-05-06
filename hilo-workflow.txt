@@ -1,0 +1,55 @@
+Object: Director
+
+    Responsibility:
+        control the sequence of play
+    
+    Behaviors:
+        conditions of the game
+        display first card
+        user input
+        display second card
+        update user score
+        display score
+        user decides if they want to continue
+    
+    State:
+        is playing
+        score
+        final score
+
+Class: Director
+
+    Attributes:
+        is_playing: boolean
+        score: int
+        final_score: int
+    
+    Methods:
+        start_game
+        get_inputs
+        do_updates
+        do_outputs
+
+
+Object: Card
+
+    Responsibility:
+        keep track of the first card random value and second card random value
+    
+    Behaviors:
+        draw first card
+        draw second card
+    
+    State:
+        first card value
+        second card value
+    
+Class: Card
+
+    Attributes:
+        first_card_value: int
+        second_card_value: int
+    
+    Methods:
+        draw_first_card
+        draw_second_card
