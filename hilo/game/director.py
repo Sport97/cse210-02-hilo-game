@@ -38,9 +38,10 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        # Adil Rafi (remove pass once finished)
+        draw_card = input("Draw card? Y/N: ")
+        self.is_playing = draw_card == "y"
 
-        pass
+        # Adil Rafi (remove pass once finished)
 
     def do_updates(self):
         """Updates the player's score.
