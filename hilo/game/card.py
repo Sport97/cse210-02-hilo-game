@@ -22,7 +22,7 @@ class Card:
     def draw_first_card(self):
         # Adil Rafi (remove pass once finished)
 
-        pass
+        self.first_card_value = random.randint(1, 13)
 
 
     def draw_second_card(self):
