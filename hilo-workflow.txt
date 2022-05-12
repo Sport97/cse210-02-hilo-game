@@ -34,22 +34,29 @@ Class: Director
 Object: Card
 
     Responsibility:
-        keep track of the first card random value and second card random value
+        keep track of the first card random value and
+        second card random value, then calculate the points for the player.
     
     Behaviors:
         draw first card
         draw second card
+        add points to player score
     
     State:
         first card value
         second card value
+        increase points
+        decrease points
     
 Class: Card
 
     Attributes:
         first_card_value: int
         second_card_value: int
+        increase_points: int
+        decrease_points: int
     
     Methods:
         draw_first_card
         draw_second_card
+        update_points

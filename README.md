@@ -29,5 +29,4 @@ root                    (project root folder)
 ## Authors
 ---
 * Adil Rafi (raf21002@byui.edu)
-* Oleksii Zaloznyi (email)
 * Stephen Port (por21022@byui.edu)

@@ -1,4 +1,5 @@
 from game.card import Card
+card = Card()
 
 class Director:
     """
@@ -17,13 +18,10 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self.first_card = Card.draw_first_card()
-        self.second_card = Card.draw_second_card()
-        self.draw_card = None
-        self.player_card = None
+        self.draw_card = ""
+        self.player_card = ""
         self.is_playing = True
-        self.score = 0
-        self.final_score = 0
+        self.score = 300
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -42,26 +40,48 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        print(f"First Card: {self.first_card}")
+        card.draw_first_card()
+        print("First Card:", card.first_card_value)
 
-        while self.player_card.lower() != "h" or self.player_card.lower() != "l":
-            self.player_card = input("Draw higher card or lower card? (h/l): ")
-        else:
-            print("Choose h for higher, or l for lower.")
-
-        # Adil Rafi (remove pass once finished)
+        self.player_card = input("Second card higher or lower? (h/l): ")
 
     def do_updates(self):
         """Updates the player's score.
-        The player earns 100 points if they guessed correctly.
-        The player loses 75 points if they guessed incorrectly.
 
         Args:
             self (Director): An instance of Director.
         """
-        # Oleksii Zaloznyi (remove pass once finished)
+        if not self.is_playing:
+            return
+        card.draw_second_card()
+        
+        if self.player_card.lower() == "h":
+            if card.second_card_value > card.first_card_value:
+                card.update_points()
+                self.score += card.increase_score
+                print("Correct")
+            else:
+                card.update_points()
+                self.score += card.decrease_score
+                print("Incorrect")
+        else:
+            if card.second_card_value < card.first_card_value:
+                card.update_points()
+                self.score += card.increase_score
+                print("Correct")
+            else:
+                card.update_points()
+                self.score += card.decrease_score
+                print("Incorrect")
+        
+        print(f"Second Card:", card.second_card_value)
 
-        pass
+        if self.score <= 0:
+            print(self.score)
+            print("Game Over")
+            self.is_playing = False
+        else:
+            print(self.score)
 
     def do_outputs(self):
         """Displays the card and the score.
@@ -70,20 +90,14 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        print(f"Next Card: {self.second_card}")
+        if not self.is_playing:
+            return
 
-        if self.final_score == 0:
-            print(self.final_score)
+        self.draw_card = input("Draw card? (y/n): ")
+        if self.draw_card.lower() == "y":
+            self.is_playing = True
+            self.player_card = None
+        elif self.draw_card.lower() == "n":
             self.is_playing = False
         else:
-            print(self.score)
-            self.draw_card = input("Draw card? (y/n): ")
-            if self.draw_card.lower() == "y":
-                self.is_playing = True
-                self.player_card = None
-            elif self.draw_card.lower() == "n":
-                self.is_playing = False
-            else:
-                print("Choose y for yes, or n for no")
-
-        # Stephen Port
+            print("Choose y for yes, or n for no")
